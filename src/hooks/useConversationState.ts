@@ -7,6 +7,7 @@ export const useConversationState = () => {
   const [options, setOptions] = useState<string[]>([]);
   const [inputDisabled, setInputDisabled] = useState(true);
   const [isLoading, setIsLoading] = useState(false);
+  const [isInitialized, setIsInitialized] = useState(false);
 
   return {
     currentStep,
@@ -16,6 +17,8 @@ export const useConversationState = () => {
     inputDisabled,
     setInputDisabled,
     isLoading,
-    setIsLoading
+    setIsLoading,
+    isInitialized,
+    setIsInitialized
   };
 };

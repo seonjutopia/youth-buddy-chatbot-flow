@@ -26,7 +26,9 @@ export const useConversationFlow = (): ConversationFlowResult => {
     inputDisabled,
     setInputDisabled,
     isLoading,
-    setIsLoading
+    setIsLoading,
+    isInitialized,
+    setIsInitialized
   } = useConversationState();
   
   const {
@@ -47,6 +49,8 @@ export const useConversationFlow = (): ConversationFlowResult => {
 
   // 대화 초기화 함수
   const initializeConversation = () => {
+    if (isInitialized) return; // Prevent duplicate initialization
+    
     // Add user profile information to first message if available
     let welcomeMessage = "안녕하세요! 청년정책 안내 서비스입니다. GPT를 활용한 지능형 정책 정보를 제공합니다.";
     
@@ -70,13 +74,14 @@ export const useConversationFlow = (): ConversationFlowResult => {
     setTimeout(() => {
       addBotMessage("시작하시려면 '시작하기' 버튼을 눌러주세요.");
       setOptions(["시작하기"]);
+      setIsInitialized(true); // Mark as initialized
     }, 500);
   };
 
-  // 첫 로드 시 대화 초기화
+  // 첫 로드 시 대화 초기화, 초기화 플래그를 사용하여 중복 방지
   useEffect(() => {
     initializeConversation();
-  }, [userProfile]); // Re-initialize when userProfile changes
+  }, []);  // Remove userProfile dependency to prevent re-initialization when profile changes
 
   return {
     messages,
