@@ -1,4 +1,3 @@
-
 import { generatePolicyResponse } from '@/services/gptService';
 import { UserProfile, GPTMessage, ConversationStep } from '@/types/conversation';
 
@@ -42,11 +41,13 @@ export const useConversationHandlers = ({
       case 'FREE_CONVERSATION':
       case 'ASK_ADDITIONAL_QUESTIONS':
         try {
+          // 사용자 질문으로부터 정보를 추출하고 관련 정책 정보 생성
           const response = await generatePolicyResponse(
             [...conversationContext, { role: 'user', content: message }]
           );
           addBotMessage(response);
           
+          // 답변 후 사용자에게 추가 액션 제공 (사용자 경험 향상)
           setTimeout(() => {
             setCurrentStep('ACTION_OPTIONS');
             setOptions([
@@ -123,9 +124,27 @@ export const useConversationHandlers = ({
         break;
         
       default:
-        // 기본적인 텍스트 입력 처리
-        addBotMessage("메시지를 받았습니다. 잠시 후 답변 드리겠습니다.");
-        setIsLoading(false);
+        // 정보 추출을 위한 기본 처리 로직
+        try {
+          // 사용자 메시지를 분석하여 관련 정책 정보 응답
+          const response = await generatePolicyResponse(
+            [...conversationContext, { role: 'user', content: message }]
+          );
+          addBotMessage(response);
+          setCurrentStep('ACTION_OPTIONS');
+          setOptions([
+            "다른 질문하기", 
+            "정보 저장하기", 
+            "공유하기", 
+            "신청방법 자세히 알아보기"
+          ]);
+        } catch (error) {
+          console.error("응답 생성 오류:", error);
+          addBotMessage("죄송합니다. 정보를 분석하는 중에 오류가 발생했습니다. 다른 질문을 해주시겠어요?");
+          setInputDisabled(false);
+        } finally {
+          setIsLoading(false);
+        }
     }
   };
 
