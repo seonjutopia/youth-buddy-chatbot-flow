@@ -13,6 +13,8 @@ interface ConversationHandlersProps {
   setInputDisabled: (disabled: boolean) => void;
   isLoading: boolean;
   setIsLoading: (loading: boolean) => void;
+  firstInteractionComplete: boolean;
+  setFirstInteractionComplete: (complete: boolean) => void;
 }
 
 export const useConversationHandlers = ({
@@ -25,7 +27,9 @@ export const useConversationHandlers = ({
   setOptions,
   setInputDisabled,
   isLoading,
-  setIsLoading
+  setIsLoading,
+  firstInteractionComplete,
+  setFirstInteractionComplete
 }: ConversationHandlersProps) => {
   
   // Function to handle sending messages
@@ -133,6 +137,7 @@ export const useConversationHandlers = ({
       case 'GREETING':
         // 대화 시작
         setCurrentStep('FREE_CONVERSATION');
+        setFirstInteractionComplete(true); // Mark first interaction as complete
         setTimeout(() => {
           // 개인화된 환영 메시지 및 정책 추천
           let welcomeMessage = "안녕하세요! 청년정책 AI 상담 서비스입니다. ";
@@ -227,6 +232,7 @@ export const useConversationHandlers = ({
         if (option === "처음으로") {
           setCurrentStep('GREETING');
           setOptions(["추천 받기"]);
+          setFirstInteractionComplete(false); // Reset first interaction state
           addBotMessage("시작하시려면 '추천 받기' 버튼을 눌러주세요.");
         }
         break;

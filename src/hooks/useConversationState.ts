@@ -8,6 +8,7 @@ export const useConversationState = () => {
   const [inputDisabled, setInputDisabled] = useState(true);
   const [isLoading, setIsLoading] = useState(false);
   const [isInitialized, setIsInitialized] = useState(false);
+  const [firstInteractionComplete, setFirstInteractionComplete] = useState(false);
 
   return {
     currentStep,
@@ -19,6 +20,8 @@ export const useConversationState = () => {
     isLoading,
     setIsLoading,
     isInitialized,
-    setIsInitialized
+    setIsInitialized,
+    firstInteractionComplete,
+    setFirstInteractionComplete
   };
 };

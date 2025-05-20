@@ -28,7 +28,9 @@ export const useConversationFlow = (): ConversationFlowResult => {
     isLoading,
     setIsLoading,
     isInitialized,
-    setIsInitialized
+    setIsInitialized,
+    firstInteractionComplete,
+    setFirstInteractionComplete
   } = useConversationState();
   
   const {
@@ -44,7 +46,9 @@ export const useConversationFlow = (): ConversationFlowResult => {
     setOptions,
     setInputDisabled,
     isLoading,
-    setIsLoading
+    setIsLoading,
+    firstInteractionComplete,
+    setFirstInteractionComplete
   });
 
   // 대화 초기화 함수
@@ -85,8 +89,8 @@ export const useConversationFlow = (): ConversationFlowResult => {
 
   return {
     messages,
-    options,
-    inputDisabled,
+    options: firstInteractionComplete ? [] : options, // Only show options if first interaction is not complete
+    inputDisabled: firstInteractionComplete ? false : inputDisabled, // Enable input after first interaction
     handleSendMessage,
     handleOptionSelect,
     currentStep,
