@@ -6,6 +6,7 @@ import { MessageInput } from './MessageInput';
 import { cn } from '@/lib/utils';
 import { ChatHeader } from './ChatHeader';
 import { useConversationFlow } from '@/hooks/useConversationFlow';
+import { Loader2 } from 'lucide-react';
 
 export interface Message {
   id: string;
@@ -24,11 +25,12 @@ export const ChatInterface: React.FC = () => {
     handleSendMessage,
     handleOptionSelect,
     currentStep,
+    isLoading
   } = useConversationFlow();
 
   useEffect(() => {
     messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
-  }, [messages]);
+  }, [messages, isLoading]);
 
   return (
     <div className="flex flex-col h-screen bg-kakao-lightGray">
@@ -41,6 +43,15 @@ export const ChatInterface: React.FC = () => {
               <ChatMessage message={message} />
             </div>
           ))}
+          
+          {isLoading && (
+            <div className="flex justify-start animate-fade-in">
+              <div className="flex items-center space-x-2 bg-kakao-botBubble text-black px-4 py-3 rounded-2xl rounded-tl-none">
+                <Loader2 className="animate-spin h-4 w-4 text-gray-500" />
+                <span>생각 중...</span>
+              </div>
+            </div>
+          )}
           
           {options && options.length > 0 && (
             <div className="flex flex-col space-y-2 animate-fade-in">
@@ -59,7 +70,7 @@ export const ChatInterface: React.FC = () => {
       
       <MessageInput 
         onSendMessage={handleSendMessage}
-        disabled={inputDisabled}
+        disabled={inputDisabled || isLoading}
         placeholder={inputDisabled ? "옵션을 선택해 주세요" : "메시지를 입력하세요"}
       />
     </div>

@@ -9,7 +9,7 @@ export const ChatHeader: React.FC = () => {
         <ChevronLeft size={24} className="text-kakao-brown" />
       </button>
       <div className="flex-grow text-center">
-        <h1 className="font-bold text-kakao-brown">청년정책 안내봇</h1>
+        <h1 className="font-bold text-kakao-brown">청년정책 AI 상담사</h1>
       </div>
       <div className="w-6"></div> {/* Spacer for balance */}
     </div>
