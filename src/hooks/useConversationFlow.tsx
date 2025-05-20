@@ -72,8 +72,8 @@ export const useConversationFlow = (): ConversationFlowResult => {
     
     addBotMessage(welcomeMessage);
     setTimeout(() => {
-      addBotMessage("시작하시려면 '시작하기' 버튼을 눌러주세요.");
-      setOptions(["시작하기"]);
+      addBotMessage("시작하시려면 '추천 받기' 버튼을 눌러주세요.");
+      setOptions(["추천 받기"]);
       setIsInitialized(true); // Mark as initialized
     }, 500);
   };

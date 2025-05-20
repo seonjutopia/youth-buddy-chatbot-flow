@@ -226,8 +226,8 @@ export const useConversationHandlers = ({
       case 'END':
         if (option === "처음으로") {
           setCurrentStep('GREETING');
-          setOptions(["시작하기"]);
-          addBotMessage("시작하시려면 '시작하기' 버튼을 눌러주세요.");
+          setOptions(["추천 받기"]);
+          addBotMessage("시작하시려면 '추천 받기' 버튼을 눌러주세요.");
         }
         break;
     }
