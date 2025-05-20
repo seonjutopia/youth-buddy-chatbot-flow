@@ -1,11 +1,11 @@
 
 import React from 'react';
-import ChatInterface from '@/components/ChatInterface';
+import { UserProfileForm } from '@/components/UserProfileForm';
 
 const Index = () => {
   return (
-    <div className="h-screen w-full max-w-lg mx-auto bg-white shadow-lg">
-      <ChatInterface />
+    <div className="h-screen w-full flex items-center justify-center bg-gray-50">
+      <UserProfileForm />
     </div>
   );
 };

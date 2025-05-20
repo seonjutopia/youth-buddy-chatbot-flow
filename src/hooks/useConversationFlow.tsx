@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from 'react';
 import { Message } from '@/components/ChatInterface';
 import { v4 as uuidv4 } from 'uuid';
@@ -12,15 +11,15 @@ type ConversationStep =
   | 'ASK_ADDITIONAL_QUESTIONS'
   | 'ACTION_OPTIONS'
   | 'ASK_NEW_SEARCH'
-  | 'COLLECT_USER_PROFILE'
   | 'COLLECT_USER_FEEDBACK'
   | 'FREE_CONVERSATION'
   | 'END';
 
 interface UserProfile {
-  age?: string;
+  birthdate?: Date;
+  gender?: 'male' | 'female' | 'other';
   location?: string;
-  situation?: string;
+  interests?: string;
 }
 
 interface GPTMessage {
@@ -36,6 +35,23 @@ export const useConversationFlow = () => {
   const [userProfile, setUserProfile] = useState<UserProfile>({});
   const [conversationContext, setConversationContext] = useState<GPTMessage[]>([]);
   const [isLoading, setIsLoading] = useState(false);
+
+  // Load user profile from localStorage on component mount
+  useEffect(() => {
+    const savedProfile = localStorage.getItem('userProfile');
+    if (savedProfile) {
+      try {
+        const parsedProfile = JSON.parse(savedProfile);
+        // Convert string date to Date object
+        if (parsedProfile.birthdate) {
+          parsedProfile.birthdate = new Date(parsedProfile.birthdate);
+        }
+        setUserProfile(parsedProfile);
+      } catch (error) {
+        console.error('Error parsing user profile:', error);
+      }
+    }
+  }, []);
 
   // Function to add a bot message
   const addBotMessage = (content: string | React.ReactNode) => {
@@ -95,6 +111,8 @@ export const useConversationFlow = () => {
         } catch (error) {
           console.error("LLM 응답 생성 오류:", error);
           addBotMessage("죄송합니다. 정보를 가져오는 중에 오류가 발생했습니다. 잠시 후 다시 시도해주세요.");
+        } finally {
+          setIsLoading(false);
         }
         break;
         
@@ -159,9 +177,8 @@ export const useConversationFlow = () => {
       default:
         // 기본적인 텍스트 입력 처리
         addBotMessage("메시지를 받았습니다. 잠시 후 답변 드리겠습니다.");
+        setIsLoading(false);
     }
-    
-    setIsLoading(false);
   };
 
   // Function to handle option selection
@@ -319,7 +336,26 @@ export const useConversationFlow = () => {
 
   // 대화 초기화 함수
   const initializeConversation = () => {
-    addBotMessage("안녕하세요! 청년정책 안내 서비스입니다. GPT를 활용한 지능형 정책 정보를 제공합니다.");
+    // Add user profile information to first message if available
+    let welcomeMessage = "안녕하세요! 청년정책 안내 서비스입니다. GPT를 활용한 지능형 정책 정보를 제공합니다.";
+    
+    if (userProfile && userProfile.interests) {
+      welcomeMessage += `\n\n${userProfile.interests}에 관심이 있으신 것으로 확인되었습니다. 맞춤 정보를 제공해드리겠습니다.`;
+      
+      // Add initial context based on user profile
+      setConversationContext([
+        { 
+          role: 'system', 
+          content: `이 사용자는 다음과 같은 프로필을 가지고 있습니다:
+          - 생년월일: ${userProfile.birthdate ? new Date(userProfile.birthdate).toLocaleDateString('ko-KR') : '정보 없음'}
+          - 성별: ${userProfile.gender === 'male' ? '남성' : userProfile.gender === 'female' ? '여성' : '정보 없음'}
+          - 거주지: ${userProfile.location || '정보 없음'}
+          - 관심분야: ${userProfile.interests || '정보 없음'}`
+        }
+      ]);
+    }
+    
+    addBotMessage(welcomeMessage);
     setTimeout(() => {
       addBotMessage("시작하시려면 '시작하기' 버튼을 눌러주세요.");
       setOptions(["시작하기"]);
@@ -329,7 +365,7 @@ export const useConversationFlow = () => {
   // 첫 로드 시 대화 초기화
   useEffect(() => {
     initializeConversation();
-  }, []);
+  }, [userProfile]); // Re-initialize when userProfile changes
 
   return {
     messages,
