@@ -1,4 +1,3 @@
-
 import React, { useState, useRef, useEffect } from 'react';
 import { ChatMessage } from './ChatMessage';
 import { OptionButton } from './OptionButton';
@@ -7,14 +6,9 @@ import { cn } from '@/lib/utils';
 import { ChatHeader } from './ChatHeader';
 import { useConversationFlow } from '@/hooks/useConversationFlow';
 import { Loader2 } from 'lucide-react';
+import { Message } from '@/types/conversation';
 
-export interface Message {
-  id: string;
-  content: string | React.ReactNode;
-  type: 'bot' | 'user';
-  options?: string[];
-  timestamp: Date;
-}
+export { type Message };
 
 export const ChatInterface: React.FC = () => {
   const messagesEndRef = useRef<HTMLDivElement>(null);
