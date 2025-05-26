@@ -70,7 +70,7 @@ const Index = () => {
             <div className="text-center mb-4">
               <div className="relative inline-block">
                 <CharacterImage
-                  src="/lovable-uploads/f8de653e-3501-4fff-ae50-a09eb0d9dd65.png"
+                  src="/lovable-uploads/95645041-14e5-4a3f-9eff-7664e88ee5fd.png"
                   alt="귀여운 캐릭터들"
                   className="w-32 h-24 object-contain mx-auto mb-3"
                 />
@@ -119,7 +119,7 @@ const Index = () => {
                   <div className="flex items-center justify-between">
                     <div className="flex items-center space-x-3">
                       <div className="w-10 h-10 bg-purple-100 rounded-full flex items-center justify-center">
-                        <div className="w-6 h-6 bg-purple-600 rounded"></div>
+                        <Home className="w-5 h-5 text-purple-600" />
                       </div>
                       <div>
                         <p className="font-medium text-gray-900">청년 주거 지원</p>
@@ -145,7 +145,7 @@ const Index = () => {
                   <div className="flex items-center justify-between">
                     <div className="flex items-center space-x-3">
                       <div className="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center">
-                        <div className="w-6 h-6 bg-blue-600 rounded"></div>
+                        <CreditCard className="w-5 h-5 text-blue-600" />
                       </div>
                       <div>
                         <p className="font-medium text-gray-900">청년도약계좌</p>
@@ -171,7 +171,7 @@ const Index = () => {
                   <div className="flex items-center justify-between">
                     <div className="flex items-center space-x-3">
                       <div className="w-10 h-10 bg-green-100 rounded-full flex items-center justify-center">
-                        <div className="w-6 h-6 bg-green-600 rounded"></div>
+                        <Heart className="w-5 h-5 text-green-600" />
                       </div>
                       <div>
                         <p className="font-medium text-gray-900">청년 건강 지원</p>
@@ -197,7 +197,7 @@ const Index = () => {
                   <div className="flex items-center justify-between">
                     <div className="flex items-center space-x-3">
                       <div className="w-10 h-10 bg-yellow-100 rounded-full flex items-center justify-center">
-                        <div className="w-6 h-6 bg-yellow-600 rounded"></div>
+                        <Briefcase className="w-5 h-5 text-yellow-600" />
                       </div>
                       <div>
                         <p className="font-medium text-gray-900">청년 취업 지원</p>
