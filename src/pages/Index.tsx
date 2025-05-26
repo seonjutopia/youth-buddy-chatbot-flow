@@ -3,6 +3,7 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { MessageCircle, User, Bell, Settings, Clock, Calendar, Home, CreditCard, Heart, Briefcase } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
+import CharacterImage from '@/components/CharacterImage';
 
 const Index = () => {
   const navigate = useNavigate();
@@ -68,9 +69,9 @@ const Index = () => {
           <CardContent className="p-6">
             <div className="text-center mb-4">
               <div className="relative inline-block">
-                <img 
-                  src="/lovable-uploads/95645041-14e5-4a3f-9eff-7664e88ee5fd.png" 
-                  alt="귀여운 캐릭터들" 
+                <CharacterImage
+                  src="/lovable-uploads/95645041-14e5-4a3f-9eff-7664e88ee5fd.png"
+                  alt="귀여운 캐릭터들"
                   className="w-32 h-24 object-contain mx-auto mb-3"
                 />
                 <div className="absolute -top-2 -right-2 w-6 h-6 bg-pink-400 rounded-full animate-pulse"></div>
