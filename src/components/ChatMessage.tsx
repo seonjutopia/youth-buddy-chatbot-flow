@@ -1,38 +1,58 @@
 
 import React from 'react';
-import { Message } from '@/types/conversation';
-import { cn } from '@/lib/utils';
+import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
+import CharacterImage from './CharacterImage';
 
 interface ChatMessageProps {
-  message: Message;
+  message: string;
+  isUser: boolean;
+  timestamp: Date;
 }
 
-export const ChatMessage: React.FC<ChatMessageProps> = ({ message }) => {
+const ChatMessage = ({ message, isUser, timestamp }: ChatMessageProps) => {
   return (
-    <div className={cn("flex items-start space-x-3")}>
-      {/* Avatar */}
-      <div className={cn(
-        "w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 mt-1",
-        message.type === 'bot' 
-          ? "bg-green-600" 
-          : "bg-blue-600"
-      )}>
-        <span className="text-white text-xs font-bold">
-          {message.type === 'bot' ? 'AI' : '나'}
-        </span>
-      </div>
-      
-      {/* Message Content */}
-      <div className="flex-grow min-w-0">
-        <div className={cn(
-          "prose prose-sm max-w-none",
-          message.type === 'bot' ? "text-gray-800" : "text-gray-800"
-        )}>
-          <div className="whitespace-pre-line leading-relaxed">
-            {message.content}
+    <div className={`flex gap-3 p-4 ${isUser ? 'flex-row-reverse' : 'flex-row'}`}>
+      <Avatar className="w-8 h-8 flex-shrink-0">
+        {isUser ? (
+          <>
+            <AvatarImage src="/lovable-uploads/user-avatar.png" />
+            <AvatarFallback className="bg-blue-500 text-white text-sm">나</AvatarFallback>
+          </>
+        ) : (
+          <div className="w-8 h-8 rounded-full overflow-hidden bg-pink-100 flex items-center justify-center">
+            <CharacterImage
+              src="/lovable-uploads/68cb0a25-104a-457e-a8d1-e389300b23e1.png"
+              alt="AI 캐릭터"
+              className="w-6 h-6 object-contain"
+            />
           </div>
+        )}
+      </Avatar>
+      
+      <div className={`flex-1 max-w-[80%] ${isUser ? 'text-right' : 'text-left'}`}>
+        <div
+          className={`inline-block p-3 rounded-2xl text-sm leading-relaxed ${
+            isUser
+              ? 'bg-blue-500 text-white rounded-br-md'
+              : 'bg-gray-100 text-gray-800 rounded-bl-md'
+          }`}
+        >
+          {message.split('\n').map((line, index) => (
+            <React.Fragment key={index}>
+              {line}
+              {index < message.split('\n').length - 1 && <br />}
+            </React.Fragment>
+          ))}
+        </div>
+        <div className={`text-xs text-gray-400 mt-1 ${isUser ? 'text-right' : 'text-left'}`}>
+          {timestamp.toLocaleTimeString('ko-KR', { 
+            hour: '2-digit', 
+            minute: '2-digit' 
+          })}
         </div>
       </div>
     </div>
   );
 };
+
+export default ChatMessage;
