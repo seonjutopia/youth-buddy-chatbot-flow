@@ -160,25 +160,25 @@ const Index = () => {
           </CardContent>
         </Card>
 
-        {/* Services Section - 2x2 Grid Layout */}
+        {/* Services Section - Updated title and layout */}
         <div>
-          <div className="flex items-center justify-between mb-3">
-            <h3 className="text-lg font-semibold text-gray-900">서비스</h3>
-            <button className="text-sm text-gray-500">전체</button>
+          <div className="flex items-center justify-between mb-4">
+            <h3 className="text-lg font-bold text-gray-900">🎯 맞춤 서비스</h3>
+            <button className="text-sm text-blue-600 font-medium">전체 보기</button>
           </div>
           
-          {/* 2x2 Grid Layout for Services */}
-          <div className="grid grid-cols-2 gap-3">
+          {/* 2x2 Grid Layout for Services - improved sizing */}
+          <div className="grid grid-cols-2 gap-4">
             {/* 주거 */}
-            <Card className="bg-white shadow-sm hover:shadow-md transition-shadow">
-              <CardContent className="p-4">
+            <Card className="bg-white shadow-md hover:shadow-lg transition-shadow border border-gray-100">
+              <CardContent className="p-5">
                 <div className="text-center">
-                  <div className="w-8 h-8 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-2">
-                    <Home className="w-4 h-4 text-purple-600" />
+                  <div className="w-12 h-12 bg-purple-100 rounded-xl flex items-center justify-center mx-auto mb-3">
+                    <Home className="w-6 h-6 text-purple-600" />
                   </div>
-                  <h4 className="font-medium text-gray-900 mb-1 text-sm">주거 지원</h4>
-                  <p className="text-xs text-gray-500 mb-2">월세 지원</p>
-                  <button className="text-xs bg-purple-500 text-white px-3 py-1 rounded-full font-medium hover:bg-purple-600 transition-colors">
+                  <h4 className="font-bold text-gray-900 mb-2 text-sm">주거 지원</h4>
+                  <p className="text-xs text-gray-500 mb-3">월세 지원</p>
+                  <button className="text-xs bg-purple-500 text-white px-4 py-2 rounded-full font-medium hover:bg-purple-600 transition-colors w-full">
                     신청
                   </button>
                 </div>
@@ -186,15 +186,15 @@ const Index = () => {
             </Card>
 
             {/* 금융 */}
-            <Card className="bg-white shadow-sm hover:shadow-md transition-shadow">
-              <CardContent className="p-4">
+            <Card className="bg-white shadow-md hover:shadow-lg transition-shadow border border-gray-100">
+              <CardContent className="p-5">
                 <div className="text-center">
-                  <div className="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-2">
-                    <CreditCard className="w-4 h-4 text-blue-600" />
+                  <div className="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center mx-auto mb-3">
+                    <CreditCard className="w-6 h-6 text-blue-600" />
                   </div>
-                  <h4 className="font-medium text-gray-900 mb-1 text-sm">도약계좌</h4>
-                  <p className="text-xs text-gray-500 mb-2">월 70만원</p>
-                  <button className="text-xs bg-blue-500 text-white px-3 py-1 rounded-full font-medium hover:bg-blue-600 transition-colors">
+                  <h4 className="font-bold text-gray-900 mb-2 text-sm">도약계좌</h4>
+                  <p className="text-xs text-gray-500 mb-3">월 70만원</p>
+                  <button className="text-xs bg-blue-500 text-white px-4 py-2 rounded-full font-medium hover:bg-blue-600 transition-colors w-full">
                     신청
                   </button>
                 </div>
@@ -202,15 +202,15 @@ const Index = () => {
             </Card>
 
             {/* 복지 */}
-            <Card className="bg-white shadow-sm hover:shadow-md transition-shadow">
-              <CardContent className="p-4">
+            <Card className="bg-white shadow-md hover:shadow-lg transition-shadow border border-gray-100">
+              <CardContent className="p-5">
                 <div className="text-center">
-                  <div className="w-8 h-8 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-2">
-                    <Heart className="w-4 h-4 text-green-600" />
+                  <div className="w-12 h-12 bg-green-100 rounded-xl flex items-center justify-center mx-auto mb-3">
+                    <Heart className="w-6 h-6 text-green-600" />
                   </div>
-                  <h4 className="font-medium text-gray-900 mb-1 text-sm">건강 지원</h4>
-                  <p className="text-xs text-gray-500 mb-2">의료비 지원</p>
-                  <button className="text-xs bg-green-500 text-white px-3 py-1 rounded-full font-medium hover:bg-green-600 transition-colors">
+                  <h4 className="font-bold text-gray-900 mb-2 text-sm">건강 지원</h4>
+                  <p className="text-xs text-gray-500 mb-3">의료비 지원</p>
+                  <button className="text-xs bg-green-500 text-white px-4 py-2 rounded-full font-medium hover:bg-green-600 transition-colors w-full">
                     신청
                   </button>
                 </div>
@@ -218,15 +218,15 @@ const Index = () => {
             </Card>
 
             {/* 취업 */}
-            <Card className="bg-white shadow-sm hover:shadow-md transition-shadow">
-              <CardContent className="p-4">
+            <Card className="bg-white shadow-md hover:shadow-lg transition-shadow border border-gray-100">
+              <CardContent className="p-5">
                 <div className="text-center">
-                  <div className="w-8 h-8 bg-yellow-100 rounded-full flex items-center justify-center mx-auto mb-2">
-                    <Briefcase className="w-4 h-4 text-yellow-600" />
+                  <div className="w-12 h-12 bg-yellow-100 rounded-xl flex items-center justify-center mx-auto mb-3">
+                    <Briefcase className="w-6 h-6 text-yellow-600" />
                   </div>
-                  <h4 className="font-medium text-gray-900 mb-1 text-sm">취업 지원</h4>
-                  <p className="text-xs text-gray-500 mb-2">취업 준비</p>
-                  <button className="text-xs bg-yellow-500 text-white px-3 py-1 rounded-full font-medium hover:bg-yellow-600 transition-colors">
+                  <h4 className="font-bold text-gray-900 mb-2 text-sm">취업 지원</h4>
+                  <p className="text-xs text-gray-500 mb-3">취업 준비</p>
+                  <button className="text-xs bg-yellow-500 text-white px-4 py-2 rounded-full font-medium hover:bg-yellow-600 transition-colors w-full">
                     신청
                   </button>
                 </div>
