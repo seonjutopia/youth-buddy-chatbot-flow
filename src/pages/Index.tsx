@@ -14,9 +14,27 @@ const Index = () => {
 
   return (
     <div className="min-h-screen bg-gray-50">
-      {/* Header with enhanced title */}
-      <div className="bg-gradient-to-r from-blue-600 to-indigo-700 shadow-lg">
-        <div className="max-w-md mx-auto px-4 py-6">
+      {/* Header with enhanced title and blue character background */}
+      <div className="bg-gradient-to-r from-blue-600 to-indigo-700 shadow-lg relative overflow-hidden">
+        {/* Background character decorations */}
+        <div className="absolute inset-0 opacity-10">
+          <div className="absolute top-4 right-8 w-24 h-24 transform rotate-12">
+            <img 
+              src="/lovable-uploads/36fb8040-2cc2-4595-8cb2-1a1690bb55e9.png"
+              alt="배경 캐릭터"
+              className="w-full h-full object-contain"
+            />
+          </div>
+          <div className="absolute bottom-4 left-8 w-20 h-20 transform -rotate-12">
+            <img 
+              src="/lovable-uploads/36fb8040-2cc2-4595-8cb2-1a1690bb55e9.png"
+              alt="배경 캐릭터"
+              className="w-full h-full object-contain"
+            />
+          </div>
+        </div>
+
+        <div className="max-w-md mx-auto px-4 py-6 relative z-10">
           <div className="flex items-center justify-between mb-4">
             <div className="flex items-center space-x-3">
               <div className="w-10 h-10 bg-white rounded-full flex items-center justify-center shadow-md">
@@ -29,19 +47,29 @@ const Index = () => {
             </div>
           </div>
           
-          {/* Enhanced service title with new blue character */}
+          {/* Enhanced service title with prominent blue character */}
           <div className="text-center">
             <div className="relative inline-block mb-3">
-              <div className="bg-gradient-to-br from-yellow-400 via-orange-400 to-yellow-500 rounded-3xl p-6">
-                {/* New Blue Character Image */}
+              <div className="bg-gradient-to-br from-yellow-400 via-orange-400 to-yellow-500 rounded-3xl p-6 relative">
+                {/* Larger, more prominent blue character */}
                 <div className="relative mb-4">
-                  <img 
-                    src="/lovable-uploads/36fb8040-2cc2-4595-8cb2-1a1690bb55e9.png"
-                    alt="청정서울 캐릭터"
-                    className="w-20 h-20 object-contain mx-auto"
-                  />
-                  <div className="absolute -top-2 -right-2 w-4 h-4 bg-white rounded-full animate-pulse shadow-lg"></div>
-                  <div className="absolute -bottom-1 -left-2 w-3 h-3 bg-blue-200 rounded-full animate-pulse delay-300"></div>
+                  <div className="w-32 h-32 mx-auto relative">
+                    <img 
+                      src="/lovable-uploads/36fb8040-2cc2-4595-8cb2-1a1690bb55e9.png"
+                      alt="청정서울 캐릭터"
+                      className="w-full h-full object-contain"
+                    />
+                    {/* Sparkle effects around the character */}
+                    <div className="absolute -top-2 -right-2 w-6 h-6 bg-white rounded-full animate-pulse shadow-lg flex items-center justify-center">
+                      <span className="text-yellow-400 text-sm">✨</span>
+                    </div>
+                    <div className="absolute -bottom-1 -left-2 w-5 h-5 bg-blue-200 rounded-full animate-pulse delay-300 flex items-center justify-center">
+                      <span className="text-blue-600 text-xs">💙</span>
+                    </div>
+                    <div className="absolute top-2 -left-3 w-4 h-4 bg-pink-200 rounded-full animate-pulse delay-500 flex items-center justify-center">
+                      <span className="text-pink-500 text-xs">⭐</span>
+                    </div>
+                  </div>
                 </div>
                 <h1 className="text-3xl font-bold text-white mb-2 drop-shadow-lg">청정서울</h1>
                 <p className="text-white/90 text-sm drop-shadow-md font-medium">YOUNG 청년정책</p>
