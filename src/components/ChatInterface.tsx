@@ -1,7 +1,7 @@
 
 import React, { useRef, useEffect } from 'react';
 import { ChatHeader } from './ChatHeader';
-import { ChatMessage } from './ChatMessage';
+import ChatMessage from './ChatMessage';
 import { MessageInput } from './MessageInput';
 import { OptionButton } from './OptionButton';
 import { UserProfileCollection } from './UserProfileCollection';
