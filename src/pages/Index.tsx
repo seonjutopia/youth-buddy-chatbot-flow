@@ -21,7 +21,7 @@ const Index = () => {
             <div className="w-8 h-8 bg-blue-600 rounded-full flex items-center justify-center">
               <span className="text-white text-sm font-bold">청</span>
             </div>
-            <span className="font-medium text-gray-900">청년정책</span>
+            <span className="font-medium text-gray-900">청정서울</span>
           </div>
           <div className="flex items-center space-x-3">
             <Bell className="w-5 h-5 text-gray-600" />
