@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import { MessageCircle, User, Bell, Settings, Clock, Calendar } from 'lucide-react';
+import { MessageCircle, User, Bell, Settings, Clock, Calendar, Home, CreditCard, Heart, Briefcase } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
 
 const Index = () => {
@@ -87,63 +87,110 @@ const Index = () => {
             <button className="text-sm text-gray-500">전체</button>
           </div>
           
-          <div className="space-y-3">
-            <Card className="bg-white shadow-sm">
-              <CardContent className="p-4">
-                <div className="flex items-center justify-between">
-                  <div className="flex items-center space-x-3">
-                    <div className="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center">
-                      <div className="w-6 h-6 bg-blue-600 rounded"></div>
+          <div className="space-y-6">
+            {/* 금융 카테고리 */}
+            <div>
+              <div className="flex items-center space-x-2 mb-3">
+                <CreditCard className="w-4 h-4 text-blue-600" />
+                <h4 className="text-sm font-semibold text-gray-800">금융</h4>
+              </div>
+              <Card className="bg-white shadow-sm">
+                <CardContent className="p-4">
+                  <div className="flex items-center justify-between">
+                    <div className="flex items-center space-x-3">
+                      <div className="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center">
+                        <div className="w-6 h-6 bg-blue-600 rounded"></div>
+                      </div>
+                      <div>
+                        <p className="font-medium text-gray-900">청년도약계좌</p>
+                        <p className="text-sm text-gray-500">월 70만원 적금</p>
+                      </div>
                     </div>
-                    <div>
-                      <p className="font-medium text-gray-900">청년도약계좌</p>
-                      <p className="text-sm text-gray-500">월 70만원 적금</p>
-                    </div>
+                    <button className="text-sm text-gray-500 bg-gray-100 px-3 py-1 rounded-full">
+                      신청
+                    </button>
                   </div>
-                  <button className="text-sm text-gray-500 bg-gray-100 px-3 py-1 rounded-full">
-                    신청
-                  </button>
-                </div>
-              </CardContent>
-            </Card>
+                </CardContent>
+              </Card>
+            </div>
 
-            <Card className="bg-white shadow-sm">
-              <CardContent className="p-4">
-                <div className="flex items-center justify-between">
-                  <div className="flex items-center space-x-3">
-                    <div className="w-10 h-10 bg-purple-100 rounded-full flex items-center justify-center">
-                      <div className="w-6 h-6 bg-purple-600 rounded"></div>
+            {/* 주거 카테고리 */}
+            <div>
+              <div className="flex items-center space-x-2 mb-3">
+                <Home className="w-4 h-4 text-purple-600" />
+                <h4 className="text-sm font-semibold text-gray-800">주거</h4>
+              </div>
+              <Card className="bg-white shadow-sm">
+                <CardContent className="p-4">
+                  <div className="flex items-center justify-between">
+                    <div className="flex items-center space-x-3">
+                      <div className="w-10 h-10 bg-purple-100 rounded-full flex items-center justify-center">
+                        <div className="w-6 h-6 bg-purple-600 rounded"></div>
+                      </div>
+                      <div>
+                        <p className="font-medium text-gray-900">청년 주거 지원</p>
+                        <p className="text-sm text-gray-500">월세 지원</p>
+                      </div>
                     </div>
-                    <div>
-                      <p className="font-medium text-gray-900">청년 주거 지원</p>
-                      <p className="text-sm text-gray-500">월세 지원</p>
-                    </div>
+                    <button className="text-sm text-gray-500 bg-gray-100 px-3 py-1 rounded-full">
+                      신청
+                    </button>
                   </div>
-                  <button className="text-sm text-gray-500 bg-gray-100 px-3 py-1 rounded-full">
-                    신청
-                  </button>
-                </div>
-              </CardContent>
-            </Card>
+                </CardContent>
+              </Card>
+            </div>
 
-            <Card className="bg-white shadow-sm">
-              <CardContent className="p-4">
-                <div className="flex items-center justify-between">
-                  <div className="flex items-center space-x-3">
-                    <div className="w-10 h-10 bg-yellow-100 rounded-full flex items-center justify-center">
-                      <div className="w-6 h-6 bg-yellow-600 rounded"></div>
+            {/* 취업 카테고리 */}
+            <div>
+              <div className="flex items-center space-x-2 mb-3">
+                <Briefcase className="w-4 h-4 text-yellow-600" />
+                <h4 className="text-sm font-semibold text-gray-800">취업</h4>
+              </div>
+              <Card className="bg-white shadow-sm">
+                <CardContent className="p-4">
+                  <div className="flex items-center justify-between">
+                    <div className="flex items-center space-x-3">
+                      <div className="w-10 h-10 bg-yellow-100 rounded-full flex items-center justify-center">
+                        <div className="w-6 h-6 bg-yellow-600 rounded"></div>
+                      </div>
+                      <div>
+                        <p className="font-medium text-gray-900">청년 취업 지원</p>
+                        <p className="text-sm text-gray-500">취업 준비</p>
+                      </div>
                     </div>
-                    <div>
-                      <p className="font-medium text-gray-900">청년 취업 지원</p>
-                      <p className="text-sm text-gray-500">취업 준비</p>
-                    </div>
+                    <button className="text-sm text-gray-500 bg-gray-100 px-3 py-1 rounded-full">
+                      신청
+                    </button>
                   </div>
-                  <button className="text-sm text-gray-500 bg-gray-100 px-3 py-1 rounded-full">
-                    신청
-                  </button>
-                </div>
-              </CardContent>
-            </Card>
+                </CardContent>
+              </Card>
+            </div>
+
+            {/* 복지 카테고리 */}
+            <div>
+              <div className="flex items-center space-x-2 mb-3">
+                <Heart className="w-4 h-4 text-green-600" />
+                <h4 className="text-sm font-semibold text-gray-800">복지</h4>
+              </div>
+              <Card className="bg-white shadow-sm">
+                <CardContent className="p-4">
+                  <div className="flex items-center justify-between">
+                    <div className="flex items-center space-x-3">
+                      <div className="w-10 h-10 bg-green-100 rounded-full flex items-center justify-center">
+                        <div className="w-6 h-6 bg-green-600 rounded"></div>
+                      </div>
+                      <div>
+                        <p className="font-medium text-gray-900">청년 건강 지원</p>
+                        <p className="text-sm text-gray-500">의료비 지원</p>
+                      </div>
+                    </div>
+                    <button className="text-sm text-gray-500 bg-gray-100 px-3 py-1 rounded-full">
+                      신청
+                    </button>
+                  </div>
+                </CardContent>
+              </Card>
+            </div>
           </div>
         </div>
       </div>
