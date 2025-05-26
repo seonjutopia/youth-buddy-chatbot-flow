@@ -64,19 +64,38 @@ const Index = () => {
         </Card>
 
         {/* AI Consultation Card */}
-        <Card className="bg-gradient-to-r from-blue-50 to-indigo-50 border-blue-100">
+        <Card className="bg-gradient-to-br from-pink-50 via-yellow-50 to-orange-50 border-pink-200 shadow-lg">
           <CardContent className="p-6">
-            <h2 className="text-xl font-bold text-gray-900 mb-2">청년정책 AI 상담</h2>
-            <p className="text-sm text-gray-600 mb-4">
-              정부에서 지원하는 다양한 청년정책을 AI가 맞춤형으로 추천해드려요
+            <div className="text-center mb-4">
+              <div className="relative inline-block">
+                <img 
+                  src="/lovable-uploads/95645041-14e5-4a3f-9eff-7664e88ee5fd.png" 
+                  alt="귀여운 캐릭터들" 
+                  className="w-32 h-24 object-contain mx-auto mb-3"
+                />
+                <div className="absolute -top-2 -right-2 w-6 h-6 bg-pink-400 rounded-full animate-pulse"></div>
+                <div className="absolute -bottom-1 -left-2 w-4 h-4 bg-yellow-400 rounded-full animate-pulse delay-300"></div>
+              </div>
+            </div>
+            <h2 className="text-xl font-bold text-gray-900 mb-2 text-center">
+              🌟 청년정책 AI 상담 🌟
+            </h2>
+            <p className="text-sm text-gray-600 mb-4 text-center leading-relaxed">
+              정부에서 지원하는 다양한 청년정책을<br/>
+              <span className="text-pink-600 font-medium">AI가 맞춤형으로</span> 추천해드려요! 💝
             </p>
             <button
               onClick={handleChatStart}
-              className="w-full bg-blue-600 text-white py-3 px-4 rounded-lg font-medium hover:bg-blue-700 transition-colors flex items-center justify-center space-x-2"
+              className="w-full bg-gradient-to-r from-pink-500 to-orange-400 text-white py-3 px-4 rounded-2xl font-medium hover:from-pink-600 hover:to-orange-500 transition-all duration-300 transform hover:scale-105 shadow-lg flex items-center justify-center space-x-2"
             >
               <MessageCircle className="w-5 h-5" />
-              <span>AI 상담 시작하기</span>
+              <span>AI 상담 시작하기 ✨</span>
             </button>
+            <div className="flex justify-center mt-3 space-x-1">
+              <div className="w-2 h-2 bg-pink-300 rounded-full animate-bounce"></div>
+              <div className="w-2 h-2 bg-yellow-300 rounded-full animate-bounce delay-100"></div>
+              <div className="w-2 h-2 bg-orange-300 rounded-full animate-bounce delay-200"></div>
+            </div>
           </CardContent>
         </Card>
 
