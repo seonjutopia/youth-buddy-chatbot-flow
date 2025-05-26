@@ -4,8 +4,10 @@ import ChatInterface from '@/components/ChatInterface';
 
 const Chat = () => {
   return (
-    <div className="h-screen w-full max-w-lg mx-auto bg-white shadow-lg">
-      <ChatInterface />
+    <div className="h-screen w-full bg-gray-50 flex items-center justify-center">
+      <div className="w-full max-w-md h-full bg-white shadow-xl">
+        <ChatInterface />
+      </div>
     </div>
   );
 };

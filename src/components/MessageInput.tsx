@@ -1,6 +1,6 @@
 
 import React, { useState } from 'react';
-import { ChevronRight } from 'lucide-react';
+import { Send } from 'lucide-react';
 
 interface MessageInputProps {
   onSendMessage: (message: string) => void;
@@ -24,26 +24,33 @@ export const MessageInput: React.FC<MessageInputProps> = ({
   };
 
   return (
-    <div className="bg-white border-t border-gray-200 p-3">
-      <form onSubmit={handleSubmit} className="flex items-center">
+    <form onSubmit={handleSubmit} className="relative">
+      <div className="flex items-center bg-gray-100 rounded-2xl border border-gray-200 focus-within:border-gray-300 focus-within:bg-white transition-colors">
         <input
           type="text"
           value={message}
           onChange={(e) => setMessage(e.target.value)}
           placeholder={placeholder}
-          className="flex-grow border border-gray-300 rounded-full py-2 px-4 focus:outline-none focus:ring-1 focus:ring-kakao-yellow"
+          className="flex-grow bg-transparent py-3 px-4 focus:outline-none text-gray-900 placeholder-gray-500"
           disabled={disabled}
         />
         <button
           type="submit"
           disabled={!message.trim() || disabled}
-          className={`ml-2 w-10 h-10 rounded-full flex items-center justify-center ${
-            !message.trim() || disabled ? 'bg-gray-200 text-gray-400' : 'bg-kakao-yellow text-kakao-brown'
-          }`}
+          className={cn(
+            "mr-2 w-8 h-8 rounded-full flex items-center justify-center transition-colors",
+            !message.trim() || disabled 
+              ? 'bg-gray-300 text-gray-500 cursor-not-allowed' 
+              : 'bg-gray-800 text-white hover:bg-gray-900'
+          )}
         >
-          <ChevronRight size={20} />
+          <Send size={16} />
         </button>
-      </form>
-    </div>
+      </div>
+    </form>
   );
 };
+
+function cn(...classes: (string | undefined | false)[]): string {
+  return classes.filter(Boolean).join(' ');
+}

@@ -8,39 +8,30 @@ interface ChatMessageProps {
 }
 
 export const ChatMessage: React.FC<ChatMessageProps> = ({ message }) => {
-  const formatTime = (date: Date) => {
-    return `${date.getHours().toString().padStart(2, '0')}:${date.getMinutes().toString().padStart(2, '0')}`;
-  };
-  
-  const formattedTime = formatTime(message.timestamp);
-  
   return (
-    <div className={cn(
-      "flex items-end max-w-[85%] group", 
-      message.type === 'user' ? "flex-row-reverse" : ""
-    )}>
-      {message.type === 'bot' && (
-        <div className="w-8 h-8 rounded-full bg-blue-600 flex items-center justify-center mr-2 mb-1">
-          <span className="text-white text-xs font-bold">GPT</span>
-        </div>
-      )}
-      
-      <div className="flex flex-col">
-        <div className={cn(
-          "px-4 py-3 rounded-xl break-words whitespace-pre-line shadow-sm",
-          message.type === 'bot' 
-            ? "bg-white text-gray-800 border border-gray-200" 
-            : "bg-blue-600 text-white"
-        )}>
-          {message.content}
-        </div>
-        
-        <span className={cn(
-          "text-xs text-gray-500 mt-1 opacity-0 group-hover:opacity-100 transition-opacity",
-          message.type === 'bot' ? "ml-1 text-left" : "mr-1 text-right"
-        )}>
-          {formattedTime}
+    <div className={cn("flex items-start space-x-3")}>
+      {/* Avatar */}
+      <div className={cn(
+        "w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 mt-1",
+        message.type === 'bot' 
+          ? "bg-green-600" 
+          : "bg-blue-600"
+      )}>
+        <span className="text-white text-xs font-bold">
+          {message.type === 'bot' ? 'AI' : '나'}
         </span>
+      </div>
+      
+      {/* Message Content */}
+      <div className="flex-grow min-w-0">
+        <div className={cn(
+          "prose prose-sm max-w-none",
+          message.type === 'bot' ? "text-gray-800" : "text-gray-800"
+        )}>
+          <div className="whitespace-pre-line leading-relaxed">
+            {message.content}
+          </div>
+        </div>
       </div>
     </div>
   );

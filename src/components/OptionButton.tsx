@@ -9,7 +9,7 @@ interface OptionButtonProps {
 export const OptionButton: React.FC<OptionButtonProps> = ({ text, onClick }) => {
   return (
     <button
-      className="bg-white border border-gray-200 text-gray-800 py-3 px-4 rounded-lg text-left hover:bg-gray-50 transition-colors w-full shadow-sm"
+      className="w-full bg-gray-100 hover:bg-gray-200 border border-gray-200 text-gray-800 py-3 px-4 rounded-xl text-left transition-colors font-medium"
       onClick={onClick}
     >
       {text}
