@@ -70,7 +70,7 @@ const Index = () => {
             <div className="text-center mb-4">
               <div className="relative inline-block">
                 <CharacterImage
-                  src="/lovable-uploads/95645041-14e5-4a3f-9eff-7664e88ee5fd.png"
+                  src="/lovable-uploads/68cb0a25-104a-457e-a8d1-e389300b23e1.png"
                   alt="귀여운 캐릭터들"
                   className="w-32 h-24 object-contain mx-auto mb-3"
                 />
