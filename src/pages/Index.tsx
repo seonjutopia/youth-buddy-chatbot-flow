@@ -14,18 +14,34 @@ const Index = () => {
 
   return (
     <div className="min-h-screen bg-gray-50">
-      {/* Header */}
-      <div className="bg-white shadow-sm border-b">
-        <div className="max-w-md mx-auto px-4 py-3 flex items-center justify-between">
-          <div className="flex items-center space-x-2">
-            <div className="w-8 h-8 bg-blue-600 rounded-full flex items-center justify-center">
-              <span className="text-white text-sm font-bold">청</span>
+      {/* Header with enhanced title */}
+      <div className="bg-gradient-to-r from-blue-600 to-indigo-700 shadow-lg">
+        <div className="max-w-md mx-auto px-4 py-6">
+          <div className="flex items-center justify-between mb-4">
+            <div className="flex items-center space-x-3">
+              <div className="w-10 h-10 bg-white rounded-full flex items-center justify-center shadow-md">
+                <span className="text-blue-600 text-lg font-bold">청</span>
+              </div>
+              <div className="flex items-center space-x-3">
+                <Bell className="w-5 h-5 text-white" />
+                <User className="w-5 h-5 text-white" />
+              </div>
             </div>
-            <span className="font-medium text-gray-900">청정서울</span>
           </div>
-          <div className="flex items-center space-x-3">
-            <Bell className="w-5 h-5 text-gray-600" />
-            <User className="w-5 h-5 text-gray-600" />
+          
+          {/* Enhanced service title with uploaded image */}
+          <div className="text-center">
+            <div className="relative inline-block mb-3">
+              <img 
+                src="/lovable-uploads/f8de653e-3501-4fff-ae50-a09eb0d9dd65.png"
+                alt="청정서울 배경"
+                className="w-full h-32 object-cover rounded-2xl opacity-20"
+              />
+              <div className="absolute inset-0 flex flex-col items-center justify-center">
+                <h1 className="text-3xl font-bold text-white mb-1 drop-shadow-lg">청정서울</h1>
+                <p className="text-white/90 text-sm drop-shadow-md">깨끗하고 건강한 서울을 위한 청년정책</p>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -100,117 +116,78 @@ const Index = () => {
           </CardContent>
         </Card>
 
-        {/* Services Section */}
+        {/* Services Section - Grid Layout */}
         <div>
           <div className="flex items-center justify-between mb-4">
             <h3 className="text-lg font-semibold text-gray-900">서비스</h3>
             <button className="text-sm text-gray-500">전체</button>
           </div>
           
-          <div className="space-y-6">
-            {/* 주거 카테고리 */}
-            <div>
-              <div className="flex items-center space-x-2 mb-3">
-                <Home className="w-4 h-4 text-purple-600" />
-                <h4 className="text-sm font-semibold text-gray-800">주거</h4>
-              </div>
-              <Card className="bg-white shadow-sm">
-                <CardContent className="p-4">
-                  <div className="flex items-center justify-between">
-                    <div className="flex items-center space-x-3">
-                      <div className="w-10 h-10 bg-purple-100 rounded-full flex items-center justify-center">
-                        <Home className="w-5 h-5 text-purple-600" />
-                      </div>
-                      <div>
-                        <p className="font-medium text-gray-900">청년 주거 지원</p>
-                        <p className="text-sm text-gray-500">월세 지원</p>
-                      </div>
-                    </div>
-                    <button className="text-sm text-gray-500 bg-gray-100 px-3 py-1 rounded-full">
-                      신청
-                    </button>
+          {/* Grid Layout for Services */}
+          <div className="grid grid-cols-2 gap-3">
+            {/* 주거 */}
+            <Card className="bg-white shadow-sm hover:shadow-md transition-shadow">
+              <CardContent className="p-4">
+                <div className="text-center">
+                  <div className="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-3">
+                    <Home className="w-6 h-6 text-purple-600" />
                   </div>
-                </CardContent>
-              </Card>
-            </div>
+                  <h4 className="font-medium text-gray-900 mb-1">주거 지원</h4>
+                  <p className="text-xs text-gray-500 mb-3">월세 지원</p>
+                  <button className="text-xs bg-purple-500 text-white px-3 py-1.5 rounded-full font-medium hover:bg-purple-600 transition-colors">
+                    신청
+                  </button>
+                </div>
+              </CardContent>
+            </Card>
 
-            {/* 금융 카테고리 */}
-            <div>
-              <div className="flex items-center space-x-2 mb-3">
-                <CreditCard className="w-4 h-4 text-blue-600" />
-                <h4 className="text-sm font-semibold text-gray-800">금융</h4>
-              </div>
-              <Card className="bg-white shadow-sm">
-                <CardContent className="p-4">
-                  <div className="flex items-center justify-between">
-                    <div className="flex items-center space-x-3">
-                      <div className="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center">
-                        <CreditCard className="w-5 h-5 text-blue-600" />
-                      </div>
-                      <div>
-                        <p className="font-medium text-gray-900">청년도약계좌</p>
-                        <p className="text-sm text-gray-500">월 70만원 적금</p>
-                      </div>
-                    </div>
-                    <button className="text-sm text-gray-500 bg-gray-100 px-3 py-1 rounded-full">
-                      신청
-                    </button>
+            {/* 금융 */}
+            <Card className="bg-white shadow-sm hover:shadow-md transition-shadow">
+              <CardContent className="p-4">
+                <div className="text-center">
+                  <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-3">
+                    <CreditCard className="w-6 h-6 text-blue-600" />
                   </div>
-                </CardContent>
-              </Card>
-            </div>
+                  <h4 className="font-medium text-gray-900 mb-1">도약계좌</h4>
+                  <p className="text-xs text-gray-500 mb-3">월 70만원</p>
+                  <button className="text-xs bg-blue-500 text-white px-3 py-1.5 rounded-full font-medium hover:bg-blue-600 transition-colors">
+                    신청
+                  </button>
+                </div>
+              </CardContent>
+            </Card>
 
-            {/* 복지 카테고리 */}
-            <div>
-              <div className="flex items-center space-x-2 mb-3">
-                <Heart className="w-4 h-4 text-green-600" />
-                <h4 className="text-sm font-semibold text-gray-800">복지</h4>
-              </div>
-              <Card className="bg-white shadow-sm">
-                <CardContent className="p-4">
-                  <div className="flex items-center justify-between">
-                    <div className="flex items-center space-x-3">
-                      <div className="w-10 h-10 bg-green-100 rounded-full flex items-center justify-center">
-                        <Heart className="w-5 h-5 text-green-600" />
-                      </div>
-                      <div>
-                        <p className="font-medium text-gray-900">청년 건강 지원</p>
-                        <p className="text-sm text-gray-500">의료비 지원</p>
-                      </div>
-                    </div>
-                    <button className="text-sm text-gray-500 bg-gray-100 px-3 py-1 rounded-full">
-                      신청
-                    </button>
+            {/* 복지 */}
+            <Card className="bg-white shadow-sm hover:shadow-md transition-shadow">
+              <CardContent className="p-4">
+                <div className="text-center">
+                  <div className="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-3">
+                    <Heart className="w-6 h-6 text-green-600" />
                   </div>
-                </CardContent>
-              </Card>
-            </div>
+                  <h4 className="font-medium text-gray-900 mb-1">건강 지원</h4>
+                  <p className="text-xs text-gray-500 mb-3">의료비 지원</p>
+                  <button className="text-xs bg-green-500 text-white px-3 py-1.5 rounded-full font-medium hover:bg-green-600 transition-colors">
+                    신청
+                  </button>
+                </div>
+              </CardContent>
+            </Card>
 
-            {/* 취업 카테고리 */}
-            <div>
-              <div className="flex items-center space-x-2 mb-3">
-                <Briefcase className="w-4 h-4 text-yellow-600" />
-                <h4 className="text-sm font-semibold text-gray-800">취업</h4>
-              </div>
-              <Card className="bg-white shadow-sm">
-                <CardContent className="p-4">
-                  <div className="flex items-center justify-between">
-                    <div className="flex items-center space-x-3">
-                      <div className="w-10 h-10 bg-yellow-100 rounded-full flex items-center justify-center">
-                        <Briefcase className="w-5 h-5 text-yellow-600" />
-                      </div>
-                      <div>
-                        <p className="font-medium text-gray-900">청년 취업 지원</p>
-                        <p className="text-sm text-gray-500">취업 준비</p>
-                      </div>
-                    </div>
-                    <button className="text-sm text-gray-500 bg-gray-100 px-3 py-1 rounded-full">
-                      신청
-                    </button>
+            {/* 취업 */}
+            <Card className="bg-white shadow-sm hover:shadow-md transition-shadow">
+              <CardContent className="p-4">
+                <div className="text-center">
+                  <div className="w-12 h-12 bg-yellow-100 rounded-full flex items-center justify-center mx-auto mb-3">
+                    <Briefcase className="w-6 h-6 text-yellow-600" />
                   </div>
-                </CardContent>
-              </Card>
-            </div>
+                  <h4 className="font-medium text-gray-900 mb-1">취업 지원</h4>
+                  <p className="text-xs text-gray-500 mb-3">취업 준비</p>
+                  <button className="text-xs bg-yellow-500 text-white px-3 py-1.5 rounded-full font-medium hover:bg-yellow-600 transition-colors">
+                    신청
+                  </button>
+                </div>
+              </CardContent>
+            </Card>
           </div>
         </div>
       </div>
