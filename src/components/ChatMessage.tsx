@@ -21,7 +21,7 @@ const ChatMessage = ({ message, isUser, timestamp }: ChatMessageProps) => {
         ) : (
           <div className="w-8 h-8 rounded-full overflow-hidden bg-pink-100 flex items-center justify-center">
             <CharacterImage
-              src="/lovable-uploads/68cb0a25-104a-457e-a8d1-e389300b23e1.png"
+              src="/lovable-uploads/f8de653e-3501-4fff-ae50-a09eb0d9dd65.png"
               alt="AI 캐릭터"
               className="w-6 h-6 object-contain"
             />
