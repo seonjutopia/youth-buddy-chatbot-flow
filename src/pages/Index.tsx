@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import { MessageCircle, User, Bell, Settings } from 'lucide-react';
+import { MessageCircle, User, Bell, Settings, Clock, Calendar } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
 
 const Index = () => {
@@ -32,23 +32,39 @@ const Index = () => {
       {/* Main Content */}
       <div className="max-w-md mx-auto px-4 py-6 space-y-6">
         
-        {/* Greeting Card */}
-        <Card className="bg-gradient-to-r from-blue-50 to-indigo-50 border-blue-100">
+        {/* Deadline Alert Card */}
+        <Card className="bg-gradient-to-r from-red-50 to-orange-50 border-red-200">
           <CardContent className="p-4">
-            <div className="flex items-start space-x-3">
-              <div className="w-10 h-10 bg-green-500 rounded-full flex items-center justify-center text-white text-sm font-bold">
-                AI
+            <div className="flex items-start justify-between">
+              <div className="flex items-start space-x-3">
+                <div className="w-10 h-10 bg-red-500 rounded-full flex items-center justify-center">
+                  <Clock className="w-5 h-5 text-white" />
+                </div>
+                <div className="flex-1">
+                  <div className="flex items-center space-x-2 mb-1">
+                    <span className="text-xs bg-red-100 text-red-700 px-2 py-1 rounded-full font-medium">
+                      마감 임박
+                    </span>
+                  </div>
+                  <h3 className="font-semibold text-gray-900 mb-1">청년도약계좌</h3>
+                  <p className="text-sm text-gray-600 mb-2">
+                    월 70만원까지 적금, 정부지원금 최대 1,200만원
+                  </p>
+                  <div className="flex items-center space-x-1 text-xs text-red-600">
+                    <Calendar className="w-3 h-3" />
+                    <span className="font-medium">12월 31일 마감 (D-5)</span>
+                  </div>
+                </div>
               </div>
-              <div>
-                <p className="text-sm text-gray-600 mb-1">내일 카드값이 결제예정이에요</p>
-                <p className="font-medium text-gray-900">맞춤형 카드 컨설팅</p>
-              </div>
+              <button className="text-xs bg-red-500 text-white px-3 py-1.5 rounded-full font-medium hover:bg-red-600 transition-colors">
+                신청
+              </button>
             </div>
           </CardContent>
         </Card>
 
-        {/* Main Service Card */}
-        <Card className="bg-white shadow-sm">
+        {/* AI Consultation Card */}
+        <Card className="bg-gradient-to-r from-blue-50 to-indigo-50 border-blue-100">
           <CardContent className="p-6">
             <h2 className="text-xl font-bold text-gray-900 mb-2">청년정책 AI 상담</h2>
             <p className="text-sm text-gray-600 mb-4">
@@ -81,7 +97,7 @@ const Index = () => {
                     </div>
                     <div>
                       <p className="font-medium text-gray-900">청년도약계좌</p>
-                      <p className="text-sm text-gray-500">월</p>
+                      <p className="text-sm text-gray-500">월 70만원 적금</p>
                     </div>
                   </div>
                   <button className="text-sm text-gray-500 bg-gray-100 px-3 py-1 rounded-full">
@@ -100,7 +116,7 @@ const Index = () => {
                     </div>
                     <div>
                       <p className="font-medium text-gray-900">청년 주거 지원</p>
-                      <p className="text-sm text-gray-500">월</p>
+                      <p className="text-sm text-gray-500">월세 지원</p>
                     </div>
                   </div>
                   <button className="text-sm text-gray-500 bg-gray-100 px-3 py-1 rounded-full">
@@ -119,7 +135,7 @@ const Index = () => {
                     </div>
                     <div>
                       <p className="font-medium text-gray-900">청년 취업 지원</p>
-                      <p className="text-sm text-gray-500">월</p>
+                      <p className="text-sm text-gray-500">취업 준비</p>
                     </div>
                   </div>
                   <button className="text-sm text-gray-500 bg-gray-100 px-3 py-1 rounded-full">
