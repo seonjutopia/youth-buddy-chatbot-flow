@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { MessageCircle, User, Bell, Settings, Clock, Calendar, Home, CreditCard, Heart, Briefcase } from 'lucide-react';
@@ -14,24 +13,15 @@ const Index = () => {
 
   return (
     <div className="min-h-screen bg-gray-50">
-      {/* Header with enhanced title and blue character background */}
+      {/* Header with blue character background from uploaded image */}
       <div className="bg-gradient-to-r from-blue-600 to-indigo-700 shadow-lg relative overflow-hidden">
-        {/* Background character decorations */}
-        <div className="absolute inset-0 opacity-10">
-          <div className="absolute top-4 right-8 w-24 h-24 transform rotate-12">
-            <img 
-              src="/lovable-uploads/36fb8040-2cc2-4595-8cb2-1a1690bb55e9.png"
-              alt="배경 캐릭터"
-              className="w-full h-full object-contain"
-            />
-          </div>
-          <div className="absolute bottom-4 left-8 w-20 h-20 transform -rotate-12">
-            <img 
-              src="/lovable-uploads/36fb8040-2cc2-4595-8cb2-1a1690bb55e9.png"
-              alt="배경 캐릭터"
-              className="w-full h-full object-contain"
-            />
-          </div>
+        {/* Background using the uploaded image with running dinosaur */}
+        <div className="absolute inset-0 opacity-20">
+          <img 
+            src="/lovable-uploads/c0fb26f9-594f-417f-b5f1-f0b00ba4b2ab.png"
+            alt="뛰어다니는 공룡 배경"
+            className="w-full h-full object-cover"
+          />
         </div>
 
         <div className="max-w-md mx-auto px-4 py-6 relative z-10">
