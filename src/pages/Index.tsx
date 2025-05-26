@@ -88,32 +88,6 @@ const Index = () => {
           </div>
           
           <div className="space-y-6">
-            {/* 금융 카테고리 */}
-            <div>
-              <div className="flex items-center space-x-2 mb-3">
-                <CreditCard className="w-4 h-4 text-blue-600" />
-                <h4 className="text-sm font-semibold text-gray-800">금융</h4>
-              </div>
-              <Card className="bg-white shadow-sm">
-                <CardContent className="p-4">
-                  <div className="flex items-center justify-between">
-                    <div className="flex items-center space-x-3">
-                      <div className="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center">
-                        <div className="w-6 h-6 bg-blue-600 rounded"></div>
-                      </div>
-                      <div>
-                        <p className="font-medium text-gray-900">청년도약계좌</p>
-                        <p className="text-sm text-gray-500">월 70만원 적금</p>
-                      </div>
-                    </div>
-                    <button className="text-sm text-gray-500 bg-gray-100 px-3 py-1 rounded-full">
-                      신청
-                    </button>
-                  </div>
-                </CardContent>
-              </Card>
-            </div>
-
             {/* 주거 카테고리 */}
             <div>
               <div className="flex items-center space-x-2 mb-3">
@@ -140,22 +114,22 @@ const Index = () => {
               </Card>
             </div>
 
-            {/* 취업 카테고리 */}
+            {/* 금융 카테고리 */}
             <div>
               <div className="flex items-center space-x-2 mb-3">
-                <Briefcase className="w-4 h-4 text-yellow-600" />
-                <h4 className="text-sm font-semibold text-gray-800">취업</h4>
+                <CreditCard className="w-4 h-4 text-blue-600" />
+                <h4 className="text-sm font-semibold text-gray-800">금융</h4>
               </div>
               <Card className="bg-white shadow-sm">
                 <CardContent className="p-4">
                   <div className="flex items-center justify-between">
                     <div className="flex items-center space-x-3">
-                      <div className="w-10 h-10 bg-yellow-100 rounded-full flex items-center justify-center">
-                        <div className="w-6 h-6 bg-yellow-600 rounded"></div>
+                      <div className="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center">
+                        <div className="w-6 h-6 bg-blue-600 rounded"></div>
                       </div>
                       <div>
-                        <p className="font-medium text-gray-900">청년 취업 지원</p>
-                        <p className="text-sm text-gray-500">취업 준비</p>
+                        <p className="font-medium text-gray-900">청년도약계좌</p>
+                        <p className="text-sm text-gray-500">월 70만원 적금</p>
                       </div>
                     </div>
                     <button className="text-sm text-gray-500 bg-gray-100 px-3 py-1 rounded-full">
@@ -191,35 +165,32 @@ const Index = () => {
                 </CardContent>
               </Card>
             </div>
-          </div>
-        </div>
-      </div>
 
-      {/* Bottom Navigation */}
-      <div className="fixed bottom-0 left-0 right-0 bg-white border-t border-gray-200">
-        <div className="max-w-md mx-auto px-4 py-2">
-          <div className="flex items-center justify-around">
-            <button className="flex flex-col items-center py-2 text-blue-600">
-              <div className="w-6 h-6 mb-1"></div>
-              <span className="text-xs">홈</span>
-              <div className="w-4 h-1 bg-blue-600 rounded-full mt-1"></div>
-            </button>
-            <button className="flex flex-col items-center py-2 text-gray-400">
-              <div className="w-6 h-6 mb-1"></div>
-              <span className="text-xs">혜택</span>
-            </button>
-            <button className="flex flex-col items-center py-2 text-gray-400">
-              <div className="w-6 h-6 mb-1"></div>
-              <span className="text-xs">송금</span>
-            </button>
-            <button className="flex flex-col items-center py-2 text-gray-400">
-              <div className="w-6 h-6 mb-1"></div>
-              <span className="text-xs">주식</span>
-            </button>
-            <button className="flex flex-col items-center py-2 text-gray-400">
-              <div className="w-6 h-6 mb-1"></div>
-              <span className="text-xs">전체</span>
-            </button>
+            {/* 취업 카테고리 */}
+            <div>
+              <div className="flex items-center space-x-2 mb-3">
+                <Briefcase className="w-4 h-4 text-yellow-600" />
+                <h4 className="text-sm font-semibold text-gray-800">취업</h4>
+              </div>
+              <Card className="bg-white shadow-sm">
+                <CardContent className="p-4">
+                  <div className="flex items-center justify-between">
+                    <div className="flex items-center space-x-3">
+                      <div className="w-10 h-10 bg-yellow-100 rounded-full flex items-center justify-center">
+                        <div className="w-6 h-6 bg-yellow-600 rounded"></div>
+                      </div>
+                      <div>
+                        <p className="font-medium text-gray-900">청년 취업 지원</p>
+                        <p className="text-sm text-gray-500">취업 준비</p>
+                      </div>
+                    </div>
+                    <button className="text-sm text-gray-500 bg-gray-100 px-3 py-1 rounded-full">
+                      신청
+                    </button>
+                  </div>
+                </CardContent>
+              </Card>
+            </div>
           </div>
         </div>
       </div>
