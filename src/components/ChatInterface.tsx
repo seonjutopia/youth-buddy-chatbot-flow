@@ -5,6 +5,7 @@ import ChatMessage from './ChatMessage';
 import { MessageInput } from './MessageInput';
 import { OptionButton } from './OptionButton';
 import { UserProfileCollection } from './UserProfileCollection';
+import { HousingSupportCalculator } from './HousingSupportCalculator';
 import { useConversationFlow } from '@/hooks/useConversationFlow';
 import { Loader2 } from 'lucide-react';
 
@@ -29,11 +30,23 @@ const ChatInterface = () => {
     scrollToBottom();
   }, [messages]);
 
+  // Check if user has shown interest in housing policies
+  const showHousingCalculator = messages.some(msg => 
+    msg.type === 'user' && 
+    typeof msg.content === 'string' && 
+    (msg.content.includes('주거') || msg.content.includes('월세') || msg.content.includes('전세'))
+  );
+
   return (
     <div className="flex flex-col h-full bg-white">
       <ChatHeader />
       
       <div className="flex-1 overflow-y-auto px-4 py-6 space-y-6">
+        {/* Show housing calculator if user is interested in housing */}
+        {showHousingCalculator && (
+          <HousingSupportCalculator />
+        )}
+        
         {messages.map((msg) => (
           <ChatMessage 
             key={msg.id} 
