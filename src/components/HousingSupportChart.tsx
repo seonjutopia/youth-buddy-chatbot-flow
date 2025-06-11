@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
+import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Cell } from 'recharts';
 
 interface ChartData {
   name: string;
@@ -40,11 +40,11 @@ export const HousingSupportChart: React.FC<HousingSupportChartProps> = ({ data, 
                 fontSize: '12px'
               }}
             />
-            <Bar 
-              dataKey="value" 
-              fill={(entry: ChartData) => entry.color}
-              radius={[4, 4, 0, 0]}
-            />
+            <Bar dataKey="value" radius={[4, 4, 0, 0]}>
+              {data.map((entry, index) => (
+                <Cell key={`cell-${index}`} fill={entry.color} />
+              ))}
+            </Bar>
           </BarChart>
         </ResponsiveContainer>
       </div>
